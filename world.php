@@ -4,7 +4,7 @@ mysql_connect("localhost", "root");
 mysql_select_db("world");
 
 
-$LOOKUP = $_REQUEST['lookup'];
+$LOOKUP = mysql_real_escape_string($_REQUEST['lookup']);
 
 # execute a SQL query on the database
 	$results = mysql_query("SELECT * FROM countries WHERE name LIKE '%$LOOKUP%';");
@@ -25,3 +25,4 @@ $LOOKUP = $_REQUEST['lookup'];
 	}
 ?>
 	</countrydata>
+	
